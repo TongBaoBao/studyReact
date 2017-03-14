@@ -1,6 +1,8 @@
 'use strict'
 const React = require("react");
 const ReactDOM = require("react-dom");
+const Redux = require("redux");
+const ReactRedux = require("react-redux");
 const axios  = require('axios');
 
 const ChildComponent = React.createClass({
