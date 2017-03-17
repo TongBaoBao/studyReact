@@ -4,12 +4,24 @@ export const COMPLETE_TODO = 'COMPLETE_TODO';
 
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 
+const axios  = require('axios');
+
 export const VisibilityFilters = {
     SHOW_ALL: 'SHOW_ALL',
     SHOW_COMPLETED: 'SHOW_COMPLETED',
     SHOW_ACTIVE: 'SHOW_ACTIVE',
 };
 
+export function addTodoFromData() {
+
+     return ( dispatch ) => {
+         axios.get('./data.json')
+             .then(res => {
+                 console.log(res);
+          dispatch(addTodo(res.data[0].text));
+             });
+    }
+}
 export function addTodo(text) {
     return {
         type: ADD_TODO,

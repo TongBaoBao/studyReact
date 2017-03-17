@@ -2,6 +2,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {
+    addTodoFromData,
     addTodo,
     completeTodo,
     setVisibilityFilter,
@@ -11,6 +12,7 @@ import {
 import AddTodo from '../components/AddTodo';
 import TodoList from '../components/TodoList';
 import Footer from '../components/Footer';
+import AddFromData from '../components/AddFromData';
 
 class App extends Component {
     render() {
@@ -20,6 +22,11 @@ class App extends Component {
                 <AddTodo
                     onAddClick={text =>
                         dispatch(addTodo(text))
+                    }
+                />
+                <AddFromData
+                    onAddFromDataClick={() =>
+                        dispatch(addTodoFromData())
                     }
                 />
                 <TodoList
